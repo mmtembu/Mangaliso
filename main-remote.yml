@@ -1,6 +1,6 @@
 ---
 - name: Exercise for setting up a server in EC
-  hosts: all
+  hosts: ec2-44-203-67-155.compute-1.amazonaws.com
   user: ubuntu
   become: true
   become_method: sudo
