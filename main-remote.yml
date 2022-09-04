@@ -1,6 +1,6 @@
 ---
 - name: Exercise for setting up a server in EC
-  hosts: 44.203.1.110
+  hosts: 3.82.119.151
   user: ubuntu
   become: true
   become_method: sudo
