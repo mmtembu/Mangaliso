@@ -42,7 +42,7 @@ jobs:
       - run:
           name: Set other environment variable
           command: |
-            aws configure set aws_secret_access_key $AWS_SECRET_KEY
+            aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
 
       - run:
           name: Create Cloudformation Stack
