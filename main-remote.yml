@@ -1,7 +1,5 @@
 ---
 - name: Exercise for setting up a server in EC
-  # hosts: ubuntu
-  # Use the public IP if the VM is already created
   hosts: 44.203.1.110
   user: ubuntu
   become: true
