@@ -1,0 +1,52 @@
+---
+- name: "Update packages"
+  become: yes
+  apt:
+    update_cache: yes
+
+- name: "Upgrade packages"
+  become: yes
+  apt:
+    upgrade: yes
+
+- name: "remove dependencies that are no longer required"
+  become: yes
+  apt:
+    upgrade: yes
+
+- name: "Update packages"
+  become: yes
+  apt:
+    update_cache: yes
+
+- name: "Install dependencies"
+  become: yes
+  apt:
+    name: ["nodejs", "npm"]
+    state: latest
+    update_cache: yes
+
+- name: "Installing pm2"
+  become: yes
+  npm:
+    name: pm2
+    global: yes
+    production: yes
+    state: present
+
+- name: "Create ~/web directory"
+  file:
+    path: ~/web
+    state: directory
+
+- name: "Copy index page from files/index.js"
+  template:
+    src: "files/index.js"
+    dest: "~/web/index.js"
+
+- name: "Start web server"
+  shell: |
+    pm2 start ~/web/index.js -f
+
+  # shell: |
+  #     curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - && sudo apt-get install -y nodejs
